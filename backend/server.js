@@ -14,7 +14,7 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-// Example route
+// route
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
