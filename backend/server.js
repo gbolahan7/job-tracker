@@ -12,8 +12,19 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
+// CORS setup
+const allowedOrigins = [
+  "https://ab-job-tracker.netlify.app", // frontend (production)
+  "http://localhost:5173", // local dev
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+}));
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // route
